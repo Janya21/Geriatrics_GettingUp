@@ -104,7 +104,7 @@ def main():
 
     # model can be only 'lstm'
     saved_model = None  # None or weights file
-    load_to_memory = True # pre-load the sequences into memory
+    load_to_memory = False # pre-load the sequences into memory
     batch_size = 32
     nb_epoch = 50
     image_shape = (image_height, image_width, 3)
