@@ -20,7 +20,7 @@ def train(seq_length, saved_model=None, class_limit=None, image_shape=(224, 224,
     tb = TensorBoard(log_dir=os.path.join('Images', 'logs', "lstm"))
 
     # Helper: Stop when we stop learning.
-    early_stopper = EarlyStopping(patience=10)
+    early_stopper = EarlyStopping(patience=30)
 
     # Helper: Save results.
     timestamp = time.time()
@@ -106,7 +106,7 @@ def main():
     saved_model = None  # None or weights file
     load_to_memory = False # pre-load the sequences into memory
     batch_size = 32
-    nb_epoch = 50
+    nb_epoch = 100
     image_shape = (image_height, image_width, 3)
 
     extract_features(seq_length=seq_length, class_limit=class_limit, image_shape=image_shape)
