@@ -108,17 +108,17 @@ if __name__ == '__main__':
     if not os.path.exists(test_dir):
         os.mkdir(test_dir)
 
-    train_fall_dir = os.path.join("..", "Images", "train", 'Fall')
-    train_ra_dir = os.path.join("..", "Images", "train", 'Regular_Activity')
-    test_fall_dir = os.path.join("..", "Images", "test", 'Fall')
-    test_ra_dir = os.path.join("..", "Images", "test", 'Regular_Activity')
-    if not os.path.exists(train_fall_dir):
-        os.mkdir(train_fall_dir)
-    if not os.path.exists(train_ra_dir):
-        os.mkdir(train_ra_dir)
-    if not os.path.exists(test_fall_dir):
-        os.mkdir(test_fall_dir)
-    if not os.path.exists(test_ra_dir):
-        os.mkdir(test_ra_dir)
+    train_notsafe_dir = os.path.join("..", "Images", "train", 'not_safe')
+    train_safe_dir = os.path.join("..", "Images", "train", 'safe')
+    test_notsafe_dir = os.path.join("..", "Images", "test", 'not_safe')
+    test_safe_dir = os.path.join("..", "Images", "test", 'safe')
+    if not os.path.exists(train_notsafe_dir):
+        os.mkdir(train_notsafe_dir)
+    if not os.path.exists(train_safe_dir):
+        os.mkdir(train_safe_dir)
+    if not os.path.exists(test_notsafe_dir):
+        os.mkdir(test_notsafe_dir)
+    if not os.path.exists(test_safe_dir):
+        os.mkdir(test_safe_dir)
 
     main()
