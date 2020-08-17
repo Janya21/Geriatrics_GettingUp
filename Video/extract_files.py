@@ -16,12 +16,9 @@ def extract_files(extenssion='mp4'):
     make a data file that we can reference when training our RNN(s).
     This will let us keep track of image sequences and other parts
     of the training process.
-
     We'll first need to extract images from each of the videos. We'll
     need to record the following data in the file:
-
     [train|test], class, filename, nb frames
-
     Extracting can be done with ffmpeg:
     `ffmpeg -i video.mpg image-%04d.jpg`
     """
@@ -50,7 +47,7 @@ def extract_files(extenssion='mp4'):
 
                 # Now get how many frames it is.
                 nb_frames = get_nb_frames_for_video(video_parts)
-                print("\n\nNumber of Frames :", nb_frames)
+                print("Number of Frames :", nb_frames,"\n\n")
                 data_file.append([train_or_test, classname, filename_no_ext, nb_frames])
 
                 print("Generated %d frames for %s" % (nb_frames, filename_no_ext))
@@ -89,14 +86,39 @@ def main():
     """
     Extract images from videos and build a new file that we
     can use as our data input file. It can have format:
-
     [train|test], class, filename, nb frames
     """
     if (len(sys.argv) == 2):
         extract_files(sys.argv[1])
     else:
-        print ("Usage: python extract_filese.py [videos extession]")
-        print ("Example: python extract_files.py mp4")
+        extract_files("mp4")
 
 if __name__ == '__main__':
+
+
+    image_dir = os.path.join("..", "Images")
+    if not os.path.exists(image_dir):
+        os.mkdir(image_dir)
+
+
+    train_dir = os.path.join("..", "Images", "train")
+    if not os.path.exists(train_dir):
+        os.mkdir(train_dir)
+    test_dir = os.path.join("..", "Images", "test")
+    if not os.path.exists(test_dir):
+        os.mkdir(test_dir)
+
+    train_fall_dir = os.path.join("..", "Images", "train", 'Fall')
+    train_ra_dir = os.path.join("..", "Images", "train", 'Regular_Activity')
+    test_fall_dir = os.path.join("..", "Images", "test", 'Fall')
+    test_ra_dir = os.path.join("..", "Images", "test", 'Regular_Activity')
+    if not os.path.exists(train_fall_dir):
+        os.mkdir(train_fall_dir)
+    if not os.path.exists(train_ra_dir):
+        os.mkdir(train_ra_dir)
+    if not os.path.exists(test_fall_dir):
+        os.mkdir(test_fall_dir)
+    if not os.path.exists(test_ra_dir):
+        os.mkdir(test_ra_dir)
+
     main()
