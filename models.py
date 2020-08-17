@@ -55,11 +55,11 @@ class ResearchModels():
         our CNN to this model predomenently."""
         # Model.
         model = Sequential()
-        model.add(LSTM(1024, return_sequences=False,
+        model.add(LSTM(512, return_sequences=False,
                        input_shape=self.input_shape,
                        dropout=0.1))
-        model.add(Dense(512, activation='relu'))
-        model.add(Dropout(0.5))
+        model.add(Dense(4096, activation='relu'))
+        model.add(Dropout(0.3))
         model.add(Dense(self.nb_classes, activation='softmax'))
 
         return model
